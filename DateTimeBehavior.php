@@ -126,6 +126,7 @@ class DateTimeBehavior extends Behavior
             if ($value instanceof DateTimeAttribute) {
                 $validator = \Yii::createObject([
                     'class' => DateValidator::className(),
+                    'type' => $value->targetFormat,
                     'format' => self::normalizeIcuFormat($value->targetFormat, $this->formatter)[1],
                 ]);
                 $validator->validateAttribute($this->owner, $targetAttribute);
